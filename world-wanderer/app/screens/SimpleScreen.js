@@ -11,11 +11,21 @@ import {
 
 const { width } = Dimensions.get("window");
 const images = [
-  { uri: "https://picsum.photos/id/1002/600/400" },
-  { uri: "https://picsum.photos/id/1003/600/400" },
-  { uri: "https://picsum.photos/id/1004/600/400" },
-  { uri: "https://picsum.photos/id/1005/600/400" },
-  { uri: "https://picsum.photos/id/1006/600/400" },
+  {
+    uri: "https://greecetravelideas.com/wp-content/uploads/2017/08/Arch-with-a-bell-white-houses-and-church-with-blue-domes-in-Oia-or-Ia-at-sunset-island-Santorini-Greece-min.jpg",
+  },
+  {
+    uri: "https://www.studentuniverse.com/blog/wp-content/uploads/2019/09/costa-brava.jpg",
+  },
+  {
+    uri: "https://i0.wp.com/handluggageonly.co.uk/wp-content/uploads/2020/09/HandLuggageOnly-6-3.jpg?w=1600&ssl=1",
+  },
+  {
+    uri: "https://www.theglobetrottingdetective.com/wp-content/uploads/2021/01/Dubai-in-7-days-and-best-things-to-do-in-Dubai-.jpg",
+  },
+  {
+    uri: "https://focusgreece.com/wp-content/uploads/2018/08/Navagio-Beach-2.jpg",
+  },
 ];
 
 const SimpleScreen = ({ navigation }) => {
@@ -60,7 +70,7 @@ const SimpleScreen = ({ navigation }) => {
           <ImageBackground key={index} source={image} style={styles.slide} />
         ))}
         <View style={styles.slide}>
-          <Text style={styles.slideText}>Get started</Text>
+          <Text style={styles.slideText}>Welcome</Text>
           <TouchableOpacity style={styles.button} onPress={handleGetStarted}>
             <Text style={styles.buttonText}>Get Started</Text>
           </TouchableOpacity>

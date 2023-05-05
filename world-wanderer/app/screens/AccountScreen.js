@@ -1,9 +1,13 @@
 import React from "react";
 // import ViewingScreen from "../components/ViewingScreen";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 
 function AccountScreen() {
-  return <Text>ACCOUNT</Text>;
+  return (
+    <View>
+      <Text>ACCOUNT</Text>
+    </View>
+  );
 }
 
 export default AccountScreen;

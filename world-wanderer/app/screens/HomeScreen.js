@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-function TipsScreen() {
+function HomeScreen() {
   return (
     <View>
-      <Text>TipsScreen</Text>
+      <Text>Home</Text>
     </View>
   );
 }
 
-export default TipsScreen;
+export default HomeScreen;
