@@ -44,7 +44,11 @@ function MainScreen() {
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Explore" component={ExploreScreen} />
       <Tab.Screen name="Tips" component={TipsScreen} />
-      <Tab.Screen name="About" component={AboutScreen} />
+      <Tab.Screen
+        name="About"
+        component={AboutScreen}
+        options={{ headerShown: false }}
+      />
 
       <Tab.Screen name="Account" component={AccountScreen} />
     </Tab.Navigator>
