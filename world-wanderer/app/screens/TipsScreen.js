@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 function TipsScreen() {
@@ -22,7 +22,6 @@ function TipsScreen() {
         const response = await fetch(url, options);
         const result = await response.json();
 
-        console.log(result);
         setHotelData(result);
       } catch (error) {
         console.error("Error fetching hotel details:", error);
@@ -37,11 +36,18 @@ function TipsScreen() {
         <>
           {hotelData.reviewInfo.reviews.map((review, index) => (
             <View key={index} style={styles.review}>
-              <Text style={styles.author}>
-                {review.reviewAuthorAttribution
-                  ? review.reviewAuthorAttribution
-                  : "Anonymous"}
-              </Text>
+              <View style={styles.authorContainer}>
+                <Ionicons
+                  name="person-circle-outline"
+                  size={20}
+                  style={styles.userIcon}
+                />
+                <Text style={styles.author}>
+                  {review.reviewAuthorAttribution
+                    ? review.reviewAuthorAttribution
+                    : "Anonymous"}
+                </Text>
+              </View>
               <Text style={styles.comment}>{review.text || "No comment"}</Text>
             </View>
           ))}
@@ -72,6 +78,17 @@ const styles = StyleSheet.create({
   },
   review: {
     marginTop: 8,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "dodgerblue",
+    padding: 10,
+  },
+  authorContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  userIcon: {
+    marginRight: 5,
   },
   author: {
     fontSize: 16,
@@ -80,6 +97,7 @@ const styles = StyleSheet.create({
   comment: {
     fontSize: 14,
     lineHeight: 20,
+    marginTop: 5,
   },
 });
 
