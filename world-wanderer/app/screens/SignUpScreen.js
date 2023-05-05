@@ -1,18 +1,15 @@
-import React from "react";
-import {
-  Text,
-  StyleSheet,
-  View,
-  TextInput,
-  Button,
-  TouchableOpacity,
-} from "react-native";
+import React, { useState } from "react";
+import { Text, StyleSheet, View, TextInput } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import Base64 from "react-native-base64";
 
 import ViewingScreen from "../components/ViewingScreen";
 import Palette from "../config/Palette";
 import CustomButton from "../components/CustomButton";
+
+import auth from "../../firebaseConfig"; // Import the auth instance you just created
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -25,9 +22,26 @@ const validationSchema = Yup.object().shape({
     .required("Confirm Password is required"),
 });
 
-const handleLogIn = () => {};
+function SignUpScreen({ navigation }) {
+  const [loading, setLoading] = useState(false);
 
-function SignUpScreen() {
+  const handleLogIn = () => {
+    navigation.navigate("Login");
+  };
+
+  const handleSignUp = async (values) => {
+    setLoading(true);
+    const encodedPassword = Base64.encode(values.password);
+    try {
+      await createUserWithEmailAndPassword(auth, values.email, encodedPassword);
+      setLoading(false);
+      navigation.navigate("Login");
+    } catch (error) {
+      setLoading(false);
+      Alert.alert("Error", error.message);
+    }
+  };
+
   return (
     <ViewingScreen style={{}}>
       <Text style={styles.title}>Set Up</Text>
@@ -43,7 +57,7 @@ function SignUpScreen() {
           confirmPassword: "",
         }}
         validationSchema={validationSchema}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={handleSignUp} // Update the onSubmit prop to use handleSignUp
       >
         {({ handleChange, handleSubmit, values, errors, touched }) => (
           <View style={styles.signUpForm}>
@@ -54,6 +68,8 @@ function SignUpScreen() {
               style={styles.input}
               keyboardType="email-address"
               clearButtonMode="always"
+              autoCorrect={false}
+              autoCapitalize="none"
             />
             {touched.email && <Text style={styles.error}>{errors.email}</Text>}
             <TextInput
@@ -63,6 +79,8 @@ function SignUpScreen() {
               style={styles.input}
               keyboardType="default"
               clearButtonMode="always"
+              autoCorrect={false}
+              autoCapitalize="none"
             />
             {touched.username && (
               <Text style={styles.error}>{errors.username}</Text>
@@ -75,6 +93,8 @@ function SignUpScreen() {
               style={styles.input}
               keyboardType="default"
               clearButtonMode="always"
+              autoCorrect={false}
+              autoCapitalize="none"
             />
             {touched.password && (
               <Text style={styles.error}>{errors.password}</Text>
@@ -87,6 +107,8 @@ function SignUpScreen() {
               style={styles.input}
               keyboardType="default"
               clearButtonMode="always"
+              autoCorrect={false}
+              autoCapitalize="none"
             />
             {touched.confirmPassword && (
               <Text style={styles.error}>{errors.confirmPassword}</Text>

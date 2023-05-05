@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import LoadingScreen from "./LoadingScreen";
 import SimpleScreen from "./SimpleScreen";
 
-function AnimtionScreen({ navigation }) {
+function AnimationScreen({ navigation }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -21,4 +21,4 @@ function AnimtionScreen({ navigation }) {
   );
 }
 
-export default AnimtionScreen;
+export default AnimationScreen;

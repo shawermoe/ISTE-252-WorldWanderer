@@ -10,4 +10,5 @@ export default {
     color: "#fff",
     fontSize: 20,
   },
+  light: "#f8f4f4",
 };
