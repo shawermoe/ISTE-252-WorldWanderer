@@ -8,7 +8,7 @@ import ViewingScreen from "../components/ViewingScreen";
 import Palette from "../config/Palette";
 import CustomButton from "../components/CustomButton";
 
-import auth from "../../firebaseConfig"; // Import the auth instance you just created
+import auth from "../../firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const validationSchema = Yup.object().shape({
@@ -57,7 +57,7 @@ function SignUpScreen({ navigation }) {
           confirmPassword: "",
         }}
         validationSchema={validationSchema}
-        onSubmit={handleSignUp} // Update the onSubmit prop to use handleSignUp
+        onSubmit={handleSignUp}
       >
         {({ handleChange, handleSubmit, values, errors, touched }) => (
           <View style={styles.signUpForm}>

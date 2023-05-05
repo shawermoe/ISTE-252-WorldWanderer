@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons"; // import Ionicons from expo/vector-icons library
+import { Ionicons } from "@expo/vector-icons";
 
 import ExploreScreen from "./ExploreScreen";
 import TipsScreen from "./TipsScreen";
@@ -19,20 +19,19 @@ function MainScreen() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           if (route.name === "Home") {
-            iconName = focused ? "ios-home" : "ios-home-outline"; // set icon names for Home tab
+            iconName = focused ? "ios-home" : "ios-home-outline";
           } else if (route.name === "Explore") {
-            iconName = focused ? "ios-compass" : "ios-compass-outline"; // set icon names for Explore tab
+            iconName = focused ? "ios-compass" : "ios-compass-outline";
           } else if (route.name === "Tips") {
             iconName = focused
               ? "ios-information-circle"
-              : "ios-information-circle-outline"; // set icon names for Tips tab
+              : "ios-information-circle-outline";
           } else if (route.name === "About") {
-            iconName = focused ? "help-circle" : "help-circle-outline"; // set icon names for About tab
+            iconName = focused ? "help-circle" : "help-circle-outline";
           } else if (route.name === "Account") {
-            iconName = focused ? "ios-person" : "ios-person-outline"; // set icon names for Account tab
+            iconName = focused ? "ios-person" : "ios-person-outline";
           }
 
-          // Return the appropriate Ionicon component based on the iconName and other parameters
           return <Ionicons name={iconName} size={size} color={color} />;
         },
       })}
@@ -50,7 +49,11 @@ function MainScreen() {
         options={{ headerShown: false }}
       />
 
-      <Tab.Screen name="Account" component={AccountScreen} />
+      <Tab.Screen
+        name="Account"
+        component={AccountScreen}
+        options={{ headerShown: false }}
+      />
     </Tab.Navigator>
   );
 }

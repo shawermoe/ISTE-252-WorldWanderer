@@ -39,7 +39,6 @@ const SimpleScreen = ({ navigation }) => {
   };
 
   const handleGetStarted = () => {
-    // Handle button press
     navigation.navigate("Sign Up");
   };
 
