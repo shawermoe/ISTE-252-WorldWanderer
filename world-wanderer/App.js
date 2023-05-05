@@ -1,23 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
 import { StyleSheet } from "react-native";
 
-import LoadingScreen from "./app/screens/LoadingScreen";
-import LandingScreen from "./app/screens/LandingScreen";
+import AnimtionScreen from "./app/screens/AnimtionScreen";
+import SignUpScreen from "./app/screens/SignUpScreen";
 import SimpleScreen from "./app/screens/SimpleScreen";
 
+const Stack = createStackNavigator();
+
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  return isLoading ? <LoadingScreen /> : <SimpleScreen />;
-  // return <SimpleScreen />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Simple Screen">
+        <Stack.Screen
+          name="Landing"
+          component={AnimtionScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Sign Up"
+          component={SignUpScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Simple Screen"
+          component={SimpleScreen}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({

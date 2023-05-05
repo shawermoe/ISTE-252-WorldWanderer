@@ -18,7 +18,7 @@ const images = [
   { uri: "https://picsum.photos/id/1006/600/400" },
 ];
 
-const SimpleScreen = () => {
+const SimpleScreen = ({ navigation }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleScroll = (event) => {
@@ -30,6 +30,7 @@ const SimpleScreen = () => {
 
   const handleGetStarted = () => {
     // Handle button press
+    navigation.navigate("Sign Up");
   };
 
   const pagination = () => (

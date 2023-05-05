@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  ImageBackground,
-  ScrollView,
-  View,
-  Text,
-} from "react-native";
+import { StyleSheet, ScrollView, View } from "react-native";
 
 function LandingScreen() {
   return (

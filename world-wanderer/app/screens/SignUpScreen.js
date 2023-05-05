@@ -1,11 +1,12 @@
 import React from "react";
 import { Text, View } from "react-native";
+import ViewingScreen from "../components/ViewingScreen";
 
 function SignUpScreen() {
   return (
-    <View>
-      <Text>SIGNUP</Text>
-    </View>
+    <ViewingScreen>
+      <Text>Sign Up Screen</Text>
+    </ViewingScreen>
   );
 }
 
