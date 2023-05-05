@@ -1,11 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
+import LoadingScreen from "./app/screens/LoadingScreen";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+  return <LoadingScreen />;
 }
 
 const styles = StyleSheet.create({
