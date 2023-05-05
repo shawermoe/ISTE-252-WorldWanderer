@@ -1,7 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { StyleSheet } from "react-native";
 
 import AnimtionScreen from "./app/screens/AnimtionScreen";
 import SignUpScreen from "./app/screens/SignUpScreen";
@@ -12,7 +11,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Simple Screen">
+      <Stack.Navigator initialRouteName="Sign Up">
         <Stack.Screen
           name="Landing"
           component={AnimtionScreen}
@@ -32,12 +31,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
