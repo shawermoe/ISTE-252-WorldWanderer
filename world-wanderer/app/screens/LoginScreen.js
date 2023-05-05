@@ -51,7 +51,6 @@ function LoginScreen({ navigation }) {
       >
         {({ handleChange, handleSubmit, values, errors, touched }) => (
           <View style={styles.signUpForm}>
-            {touched.email && <Text style={styles.error}>{errors.email}</Text>}
             <TextInput
               onChangeText={handleChange("email")}
               value={values.email}
