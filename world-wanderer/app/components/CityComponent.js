@@ -1,10 +1,22 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 import Palette from "../config/Palette";
 
 function CityComponent({ title, subTitle, image }) {
   return (
-    <View style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => {
+        Alert.alert("I'd tell you more about " + title + ", but I'm too lazy.");
+      }}
+    >
       <Image style={styles.image} source={image} />
       <View style={styles.detailsContainer}>
         <Text style={styles.title} numberOfLines={1}>
@@ -14,7 +26,7 @@ function CityComponent({ title, subTitle, image }) {
           {subTitle}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
